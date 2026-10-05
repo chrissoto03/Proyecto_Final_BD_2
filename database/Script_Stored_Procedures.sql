@@ -67,6 +67,10 @@ BEGIN
 END
 GO
 
+/* ============================================================================
+   3. Busca un negocio por su ID
+   ============================================================================ */
+
 CREATE PROCEDURE renta.usp_Negocio_ConsultarPorId
     @negocio_id INT
 AS
@@ -84,7 +88,7 @@ END
 GO
 
 /* ============================================================================
-   3. USUARIO
+   4. USUARIO -  Registra un nuevo usuario con el rol Cliente
    ============================================================================ */
 
 CREATE PROCEDURE renta.usp_Usuario_Registrar
@@ -111,7 +115,9 @@ BEGIN
 END
 GO
 
-/* ============================================================================*/
+/* ============================================================================
+   5.  Crea un empleado con rol Administrador u Operador
+   ============================================================================ */
 
 CREATE PROCEDURE renta.usp_Usuario_CrearEmpleado
     @nombre_completo VARCHAR(100),
@@ -145,7 +151,7 @@ END
 GO
 
 /* ============================================================================
-   4. CATEGORIA EQUIPO
+   6. CATEGORIA EQUIPO - Crea una categoría de equipos con sus tarifas
    ============================================================================ */
 
 CREATE PROCEDURE renta.usp_CategoriaEquipo_Crear
@@ -172,7 +178,7 @@ END
 GO
 
 /* ============================================================================
-   5. EQUIPO
+   7. EQUIPO - Registra un equipo nuevo y lo deja como Disponible
    ============================================================================ */
 
 CREATE PROCEDURE renta.usp_Equipo_Crear
@@ -196,7 +202,9 @@ BEGIN
 END
 GO
 
-/* ============================================================================*/
+/* ============================================================================
+   8. Cambia el estado de un equipo, por ejemplo de Disponible a Mantenimiento
+   ============================================================================ */
 
 CREATE PROCEDURE renta.usp_Equipo_ActualizarEstado
     @equipo_id    INT,
@@ -224,7 +232,9 @@ BEGIN
 END
 GO
 
-/* ============================================================================*/
+/* ============================================================================
+   9. Busca que equipos están disponibles en un período determinado
+   ============================================================================ */
 
 CREATE PROCEDURE renta.usp_Equipo_ConsultarDisponibilidad
     @negocio_id   INT,
@@ -256,7 +266,9 @@ BEGIN
 END
 GO
 
-/* ============================================================================*/
+/* ============================================================================
+   10. Muestra todos los equipos de un negocio.
+   ============================================================================ */
 
 CREATE PROCEDURE renta.usp_Equipo_Listar
     @negocio_id INT
@@ -277,7 +289,10 @@ BEGIN
 END
 GO
 
-/* ============================================================================*/
+
+/* ============================================================================
+   11. Busca una reserva y muestra sus datos y los equipos que contiene
+   ============================================================================ */
 
 CREATE PROCEDURE renta.usp_Reserva_ConsultarPorId
     @reserva_id INT
